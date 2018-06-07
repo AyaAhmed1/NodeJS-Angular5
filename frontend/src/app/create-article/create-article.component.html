@@ -1,0 +1,40 @@
+<div class="container">
+    <br>
+    <h1 align="center"> Create Article</h1>
+    <br/>
+<form name="createForm" #createForm="ngForm"  (ngSubmit)="create(createForm)" novalidate >
+    
+  <div class="form-group">
+  <label> Name </label>
+  <input type="text" name="name" [(ngModel)]="dataForm.name" class="form-control"  required/>
+  <span style="color:red" *ngIf="createForm.submitted && !dataForm.name ">
+    This Field is Required
+  </span>
+</div>
+
+
+  <div class="form-group">
+  <label> Number</label>
+  <input type="number" name="number" [(ngModel)]="dataForm.number" class="form-control" required/>  <br/>
+  <span style="color:red" *ngIf="createForm.submitted && !dataForm.number ">
+    This Field is Required
+  </span>
+</div>
+
+<div class="form-group">
+
+  <label> Type</label>
+  <select  class="form-control" name="type"  [(ngModel)]="dataForm.type"  required>
+    <option value="Raw Material"   >Raw Material</option>
+    <option value="Semi Processed"  >Semi Processed</option>
+    </select>
+    <span style="color:red" *ngIf="createForm.submitted && !dataForm.type ">
+        This Field is Required
+      </span>
+    </div>
+  <br/>
+
+ 
+  <button class="btn btn-success"> Create </button>
+</form>
+</div>

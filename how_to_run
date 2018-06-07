@@ -1,0 +1,19 @@
+#How_to_run
+#########################
+step 1 :
+git clone https://AyaAhmed1@bitbucket.org/AyaAhmed1/modeso_evaluation_task.git
+
+step 2-run mongo server 
+run command 'mongod'
+
+step 3: cd /backend
+step 4: run command 'npm install'
+step 5: run command 'npm start'
+
+step 6: cd /frontned
+step 7:run command  'ng update' 
+step 8:run command 'ng serve'
+
+step 9: go to 'http://localhost:4200'
+
+

@@ -1,0 +1,24 @@
+<div class="container">
+  <br>
+  <h1 align="center"> Most Repeated Articles</h1>
+  <br/>
+  <ng-multiselect-dropdown name="articles" [placeholder]="'Articles'" [data]="articles" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
+  <br/>
+  <br/>
+  <button class="btn btn-success" (click)="findmax()"> Find max</button>
+  <div>
+<br/>
+<br/>
+    <div class="card">
+      <div class="card-header"> Product Info </div>
+      <div class="card-body">
+
+        The Most Repreated Article : {{ article?.name }}
+        <br/> Times: {{ count }}
+
+      </div>
+    </div>
+  </div>
+</div>

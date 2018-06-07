@@ -1,0 +1,41 @@
+<div class="container">
+  <br>
+  <h1 align="center"> Products</h1>
+  <br/>
+  <div class="row">
+    <div class="col-4">
+      <button class="btn btn-success" routerLink="create" routerLinkActive="active"> Create New Product </button>
+    </div>
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+      <input type="text" placeholder="Search" [(ngModel)]="searchText">
+    </div>
+  </div>
+  <br>
+  <br>
+  <table class="table table-striped ">
+    <thead class="thead-dark">
+      <tr>
+        <th>Product Name</th>
+        <th> Product Number</th>
+        <th> Articles Name </th>
+
+        <th> Action </th>
+      </tr>
+    </thead>
+    <tr *ngFor="let product of response  | article: searchText">
+      <td> {{product.name}}</td>
+      <td> {{product.number }}</td>
+      <td> <label *ngFor="let articles of product.articles"> 
+     {{articles.name }}  &nbsp; &nbsp;
+      </label>
+      </td>
+      <td>
+        <button class="btn btn-success" routerLink="{{product._id}}" routerLinkActive="active"> View </button>
+        <button class="btn btn-primary" routerLink="edit/{{product._id}}" routerLinkActive="active"> Edit </button>
+        <button class="btn btn-danger" (click)="delete('/products/'+product._id)"> Delete </button>
+      </td>
+
+    </tr>
+  </table>

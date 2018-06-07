@@ -1,0 +1,38 @@
+<div class="container">
+  <br>
+  <h1 align="center"> Create Product</h1>
+  <br/>
+  <form name="createForm" #createForm="ngForm" (ngSubmit)="create(createForm)" novalidate>
+
+    <div class="form-group">
+      <label> Name </label>
+      <input type="text" name="name" [(ngModel)]="name"  class="form-control"required/>
+      <span style="color:red" *ngIf="createForm.submitted && !name ">
+        This Field is Required
+      </span>
+    </div>
+  
+
+    
+  <div class="form-group">
+      <label> Number</label>
+      <input type="number" name="number" [(ngModel)]="number" class="form-control" required/>
+      <span  style="color:red" *ngIf="createForm.submitted && !number ">
+        This Field is Required
+      </span>
+    </div>
+    <ng-multiselect-dropdown name="articles"
+    [placeholder]="'Articles'"
+    [data]="articles"
+    [(ngModel)]="selectedItems"
+    [settings]="dropdownSettings"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+  >
+  </ng-multiselect-dropdown>
+    <div class="form-group">
+
+  </div>
+    <button class="btn btn-success"> Create </button>
+  </form>
+  </div>

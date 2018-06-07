@@ -1,0 +1,32 @@
+<div class="container">
+    <br>
+    <h1 align="center"> Edit Article</h1>
+    <br/>
+<form name="editForm" #editForm="ngForm"  (ngSubmit)="create(editForm)" novalidate >
+    <div class="form-group">
+  <label> Name </label>
+  <input  type="text" name="name" [(ngModel)]="dataForm.name" class="form-control"  required/>
+  <span style="color:red" *ngIf="editForm.submitted && !dataForm.name ">
+    This Field is Required
+  </span>
+</div>
+
+<div class="form-group">
+  <label> Number</label>
+  <input type="number" name="number" [(ngModel)]="dataForm.number" class="form-control"  required/>  <br/>
+  <span style="color:red" *ngIf="editForm.submitted && !dataForm.number ">
+    This Field is Required
+  </span>
+</div>
+
+<div class="form-group">
+  <label> Type</label>
+  <select name="type"   class="form-control" [(ngModel)]="dataForm.type" >
+    <option value="Raw Material"   >Raw Material</option>
+    <option value="Semi Processed" >Semi Processed</option>
+    </select>
+    </div>
+
+  <button class="btn btn-success"> Update </button>
+</form>
+</div>

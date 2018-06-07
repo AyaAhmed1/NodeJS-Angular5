@@ -1,0 +1,39 @@
+<div class="container">
+  <br>
+  <h1 align="center"> Articles</h1>
+  <br/>
+  <div class="row">
+    <div class="col-4">
+      <button class="btn btn-success" routerLink="create" routerLinkActive="active"> Create New Article </button>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-info" routerLink="mostrepeated" routerLinkActive="active"> Most Repeated Articles </button>
+
+    </div>
+    <div class="col-4">
+      <input type="text" placeholder="Search " [(ngModel)]="searchText">
+    </div>
+  </div>
+  <br>
+  <br>
+  <table class="table table-striped ">
+    <thead class="thead-dark">
+      <tr>
+        <th>Article Name</th>
+        <th> Article Number</th>
+        <th> Article Type</th>
+        <th> Action </th>
+      </tr>
+    </thead>
+    <tr *ngFor="let articles of response  | article: searchText">
+      <td> {{articles.name}}</td>
+      <td> {{articles.number }}</td>
+      <td> {{articles.type }}</td>
+      <td>
+        <button class="btn btn-primary" routerLink="edit/{{articles._id}}" routerLinkActive="active"> Edit </button>
+        <button class="btn btn-danger" (click)="delete('/articles/'+articles._id)"> Delete </button>
+      </td>
+
+    </tr>
+  </table>
+</div>
